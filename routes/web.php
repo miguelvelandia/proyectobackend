@@ -12,5 +12,17 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('servicio', 'ServicioController');
+Route::resource('users', 'UserController');
+Route::resource('roles', 'RoleController');
+Route::resource('cliente', 'ClienteController');
+Route::resource('especial', 'ClienteServicioController');
+Route::resource('factura', 'FacturaController');
+
